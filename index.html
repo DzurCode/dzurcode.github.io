@@ -13,9 +13,15 @@
         
       <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
-            <img src="assets/logo2.jpg" alt="Logo" class="h-32 w-32 object-contain" />
+            <img src="assets/logo2.jpg" alt="Logo" class="h-32 w-32 sm:h-12 sm:w-12 object-contain" />
         </div>
-        <div class="space-x-4">
+        <!-- Hamburger (Mobile) -->
+        <div class="sm:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none text-3xl">
+            &#9776;
+          </button>
+        </div>
+        <div class="hidden sm:flex space-x-4 items-center">
           <a href="#projects" class="hover:text-blue-500 text-white text-2xl">Projects</a>
           <a href="#about" class="hover:text-blue-500 text-white text-2xl">About me</a>
           <a href="#contact" class="hover:text-blue-500 text-white text-2xl">Contact</a>
@@ -26,44 +32,51 @@
             </a>
         </div>
       </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+        <a href="#projects" class="block text-white hover:text-blue-500 text-lg">Projects</a>
+        <a href="#about" class="block text-white hover:text-blue-500 text-lg">About me</a>
+        <a href="#contact" class="block text-white hover:text-blue-500 text-lg">Contact</a>
+        <a href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer"
+          class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-center">
+          HIRE ME
+        </a>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="flex gap-6 mx-auto py-16 px-4 items-center bg-gradient-to-r from-[#25575a] to-[#0f2b34]">
-        <div class="w-1/2 flex flex-col items-end justify-center me-8">
-            <h2 class="text-6xl font-bold mb-2 text-white">Hi, I'm Daniel</h2>
+        <div class="w-1/2 flex flex-col items-end justify-center sm:me-8">
+            <h2 class="sm:text-6xl text-5xl font-bold mb-2 text-white">Hi, I'm Daniel</h2>
             <p class="text-2xl text-gray-700 text-white">Mobile and Front Developer</p>
             <p class="text-2xl text-gray-700 text-white">Mobile Development Lover</p>
         </div>
-        <div class="w-1/2 flex ms-8">
-            <img src="assets/hero-image.png" alt="Hero Image" class="w-auto h-[600px] rounded-lg shadow-md" />
+        <div class="w-1/2 flex sm:ms-8">
+            <img src="assets/hero-image.png" alt="Hero Image" class="w-auto sm:h-[600px] h-[300px] rounded-lg shadow-md" />
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="flex flex-col items-center bg-gradient-to-r from-[#367a78] to-[#0f2b34]">
-        <h1 class="text-5xl font-bold mb-4 py-8 text-white">About Me</h1>
-       <div class="flex gap-6 mx-auto px-16 pb-16 items-center justify-center">
-      <div class="w-1/2 flex justify-center">
-        <img src="assets/about-image.jpeg" alt="About Image" class="w-auto h-[600px] rounded-lg shadow-md" />
-      </div>
-      <div class="w-1/2 flex flex-col items-center justify-center">
-        
-        <p class="text-gray-700 text-2xl leading-loose text-justify text-white">
+      <h1 class="text-5xl font-bold mb-4 py-8 text-white">About Me</h1>
+      <div class="flex lg:flex-row flex-col gap-6 mx-auto  px-4 lg:px-16 pb-16 items-center justify-center">
+        <div class="w-full lg:w-1/2 flex justify-center">
+          <img src="assets/about-image.jpeg" alt="About Image" class="w-auto sm:h-[600px] h-[400px] rounded-lg shadow-md" />
+        </div>
+        <div class="w-full lg:w-1/2 flex flex-col px-4 items-center justify-center">
+          <p class="text-gray-700 sm:text-2xl text-base leading-loose text-justify text-white">
             I'm a <strong>Software Developer </strong> with over 3 years of experience, specializing in <strong>Frontend and Mobile Development</strong>, with a strong focus on  <strong>Flutter</strong>. I've led and develop multiple mobile cross-platform apps using Flutter, integrating advanced services such as <strong>Firebase, Google APIs, Websockets</strong> and even Artificial Intelligence.
 I have mastered modern architectural patterns such as <strong>Clean Architecture, MVVM, MVP and MVC</strong>, which allows me to build scalable, maintainable, and robustly structured solutions.
- 
-        </p>
-        <br />
-        <p class="text-gray-700 text-2xl leading-loose text-justify text-white">
-            Additionally, I have backend expertise, which allows me to perform as a full-stack developer, quickly adapting to any technology stack required for the project. I excel at teamwork, commitment to good development practices and delivering high-quality products focused on user experience.
-        </p>
+          </p>
+          <br />
+          <p class="text-gray-700 sm:text-2xl text-base leading-loose text-justify text-white">
+              Additionally, I have backend expertise, which allows me to perform as a full-stack developer, quickly adapting to any technology stack required for the project. I excel at teamwork, commitment to good development practices and delivering high-quality products focused on user experience.
+          </p>
+        </div>
       </div>
-       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-white py-16 px-4 bg-gradient-to-r from-[#a76840] to-[#654129]">
+    <section id="projects" class="bg-white py-16 px-4 bg-gradient-to-r from-[#a76840] to-[#0b1519]">
       <div class="max-w-6xl mx-auto">
         <h3 class="text-5xl font-bold mb-8 text-center text-white">Projects</h3>
         <div class="grid md:grid-cols-2 gap-6">
@@ -73,30 +86,30 @@ I have mastered modern architectural patterns such as <strong>Clean Architecture
              <a href="https://play.google.com/store/apps/details?id=com.rapifac.luchito" target="_blank" class="flex items-center space-x-2 text-2xl font-bold hover:text-[#1f9dd3]">
                 Luchito  App
             </a>
-            <p class="text-gray-600">Sistema de gestión de pedidos para restaurantes como aplicación móvil en Flutter (Dart), aplicando Clean Architecture</p>
+            <p class="text-gray-600">Order management system for restaurants as a mobile app in Flutter (Dart), applying Clean Architecture</p>
           </div>
           <div class="bg-gray-100 p-6 rounded-lg shadow-md">
             <img src="assets/green-map.png" alt="Green Map" class="w-full h-auto rounded-lg shadow-md mb-4  " />
              <a href="https://github.com/DzurCode/GreenMap" target="_blank" class="flex items-center space-x-2 text-2xl font-bold hover:text-[#185d1e]">
                 Green Map
             </a>
-            <p class="text-gray-600">Aplicación móvil en Flutter para la visualización interactiva de puntos verdes (lugares ecológicos), utilizando Google Maps API</p>
+            <p class="text-gray-600">Flutter mobile app for interactive visualization of green spots (eco-friendly places), using Google Maps API</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-r from-[#0b1519] to-[#654129]">
+    <section id="contact" class="py-16 bg-gradient-to-r from-[#654129] to-[#0b1519]">
         <h3 class="text-5xl font-bold mb-6 text-center text-white">Contact</h3>
-        <div class="flex justify-center space-x-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center justify-center sm:space-x-8 px-8">
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/dzurn" target="_blank" class="flex items-center space-x-2 text-white hover:text-blue-600">
                 <img src="assets/linkedin.png" alt="LinkedIn" class="w-12 h-12" />
                 <span>LinkedIn</span>
             </a>
             <!-- WhatsApp -->
-            <a href="https://wa.me/51959962145" target="_blank" class="flex items-center space-x-2 text-white hover:text-green-600">
+            <a href="https://wa.me/51959962145" target="_blank" class="flex items-center space-x-2 ms-0 text-white hover:text-green-600">
                 <img src="assets/whatsapp.png" alt="WhatsApp" class="w-12 h-12" />
                 <span>WhatsApp</span>
             </a>
@@ -110,9 +123,17 @@ I have mastered modern architectural patterns such as <strong>Clean Architecture
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-6 bg-gray-200">
+    <footer class="text-center py-6 bg-[#1b2336] text-white">
       <p>&copy; 2025 Daniel  Antony Zuñiga Ramos. All rights reserved.</p>
     </footer>
+    <script>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
 
   </body>
 </html>
