@@ -3,69 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name | Portfolio</title>
+    <title>Daniel | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100 text-gray-900 font-sans">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md">
+    <nav class="bg-[#1b2336] shadow-md">
+        
       <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">YourName</h1>
+        <div class="flex items-center space-x-2">
+            <img src="assets/logo2.jpg" alt="Logo" class="h-32 w-32 object-contain" />
+        </div>
         <div class="space-x-4">
-          <a href="#about" class="hover:text-blue-500">About</a>
-          <a href="#projects" class="hover:text-blue-500">Projects</a>
-          <a href="#contact" class="hover:text-blue-500">Contact</a>
+          <a href="#projects" class="hover:text-blue-500 text-white text-2xl">Projects</a>
+          <a href="#about" class="hover:text-blue-500 text-white text-2xl">About me</a>
+          <a href="#contact" class="hover:text-blue-500 text-white text-2xl">Contact</a>
+          <a href="https://www.linkedin.com/in/dzurn" 
+            target="_blank" rel="noopener noreferrer"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            HIRE ME
+            </a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="text-center py-20 bg-blue-50">
-      <h2 class="text-4xl font-bold mb-2">Hi, I'm Your Name</h2>
-      <p class="text-xl text-gray-700">Frontend Developer | UI/UX Enthusiast</p>
+    <section class="flex gap-6 mx-auto py-16 px-4 items-center bg-gradient-to-r from-[#25575a] to-[#0f2b34]">
+        <div class="w-1/2 flex flex-col items-end justify-center me-8">
+            <h2 class="text-6xl font-bold mb-2 text-white">Hi, I'm Daniel</h2>
+            <p class="text-2xl text-gray-700 text-white">Mobile and Front Developer</p>
+            <p class="text-2xl text-gray-700 text-white">Mobile Development Lover</p>
+        </div>
+        <div class="w-1/2 flex ms-8">
+            <img src="assets/hero-image.png" alt="Hero Image" class="w-auto h-[600px] rounded-lg shadow-md" />
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-bold mb-4">About Me</h3>
-      <p class="text-gray-700">
-        I am a passionate developer with experience in building web applications using HTML, CSS, JavaScript, and frameworks like React and Vue. I love creating clean and user-friendly interfaces.
-      </p>
+    <section id="about" class="flex flex-col items-center bg-gradient-to-r from-[#367a78] to-[#0f2b34]">
+        <h1 class="text-5xl font-bold mb-4 py-8 text-white">About Me</h1>
+       <div class="flex gap-6 mx-auto px-16 pb-16 items-center justify-center">
+      <div class="w-1/2 flex justify-center">
+        <img src="assets/about-image.jpeg" alt="About Image" class="w-auto h-[600px] rounded-lg shadow-md" />
+      </div>
+      <div class="w-1/2 flex flex-col items-center justify-center">
+        
+        <p class="text-gray-700 text-2xl leading-loose text-justify text-white">
+            I´m a Software Developer with over 3 years of experience, specializing in Frontend and Mobile Development, with a strong focus on Flutter. I’ve led and develop multiple mobile cross-platform apps using Flutter, integrating advanced services such as Firebase, Google APIs, Websockets and even Artificial Intelligence. 
+I have mastered modern architectural patterns such as Clean Architecture, MVVM, MVP and MVC, which allows me to build scalable, maintainable, and robustly structured solutions.
+ Additionally, I have backend expertise, which allows me to perform as a full-stack developer, quickly adapting to any technology stack required for the project. I excel at teamwork, commitment to good development practices and delivering high-quality products focused on user experience.
+        </p>
+      </div>
+       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-white py-16 px-4">
+    <section id="projects" class="bg-white py-16 px-4 bg-gradient-to-r from-[#a76840] to-[#654129]">
       <div class="max-w-6xl mx-auto">
-        <h3 class="text-3xl font-bold mb-8 text-center">Projects</h3>
+        <h3 class="text-5xl font-bold mb-8 text-center text-white">Projects</h3>
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Project Card -->
           <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h4 class="text-xl font-semibold mb-2">Project One</h4>
-            <p class="text-gray-600">A web app built with React that helps users track tasks efficiently.</p>
+            <img src="assets/luchito-app.png" alt="Luchito App" class="w-full h-auto rounded-lg shadow-md mb-4" />
+            <h4 class="text-xl font-semibold mb-2">Luchito  App</h4>
+            <p class="text-gray-600">Sistema de gestión de pedidos para restaurantes como aplicación móvil en Flutter (Dart), aplicando Clean Architecture</p>
           </div>
           <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h4 class="text-xl font-semibold mb-2">Project Two</h4>
-            <p class="text-gray-600">An e-commerce landing page designed with TailwindCSS and Alpine.js.</p>
+            <img src="assets/green-map.png" alt="Green Map" class="w-full h-auto rounded-lg shadow-md mb-4  " />
+            <h4 class="text-xl font-semibold mb-2">Green Map</h4>
+            <p class="text-gray-600">aplicación móvil en Flutter para la visualización interactiva de puntos verdes (lugares ecológicos), utilizando Google Maps API</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-bold mb-4">Contact</h3>
-      <form class="space-y-4">
-        <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded" />
-        <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded" />
-        <textarea placeholder="Your Message" rows="5" class="w-full p-3 border border-gray-300 rounded"></textarea>
-        <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
-      </form>
+    <section id="contact" class="py-16 bg-gradient-to-r from-[#0b1519] to-[#654129]">
+        <h3 class="text-5xl font-bold mb-6 text-center text-white">Contact</h3>
+        <div class="flex justify-center space-x-8">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/dzurn" target="_blank" class="flex items-center space-x-2 text-white hover:text-blue-600">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="w-12 h-12" />
+                <span>LinkedIn</span>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/51959962145" target="_blank" class="flex items-center space-x-2 text-white hover:text-green-600">
+                <img src="assets/whatsapp.png" alt="WhatsApp" class="w-12 h-12" />
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- Gmail -->
+            <a href="mailto:daniel1antonyy@gmail.com" class="flex items-center space-x-2 text-white hover:text-red-600">
+                <img src="assets/gmail.png" alt="Gmail" class="w-12 h-12" />
+                <span>Gmail</span>
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="text-center py-6 bg-gray-200">
-      <p>&copy; 2025 Your Name. All rights reserved.</p>
+      <p>&copy; 2025 Daniel  Antony Zuñiga Ramos. All rights reserved.</p>
     </footer>
 
   </body>
