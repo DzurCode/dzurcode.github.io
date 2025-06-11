@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">YourName</h1>
+        <div class="space-x-4">
+          <a href="#about" class="hover:text-blue-500">About</a>
+          <a href="#projects" class="hover:text-blue-500">Projects</a>
+          <a href="#contact" class="hover:text-blue-500">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-blue-50">
+      <h2 class="text-4xl font-bold mb-2">Hi, I'm Your Name</h2>
+      <p class="text-xl text-gray-700">Frontend Developer | UI/UX Enthusiast</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-4xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-bold mb-4">About Me</h3>
+      <p class="text-gray-700">
+        I am a passionate developer with experience in building web applications using HTML, CSS, JavaScript, and frameworks like React and Vue. I love creating clean and user-friendly interfaces.
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-white py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold mb-8 text-center">Projects</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Project Card -->
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 class="text-xl font-semibold mb-2">Project One</h4>
+            <p class="text-gray-600">A web app built with React that helps users track tasks efficiently.</p>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 class="text-xl font-semibold mb-2">Project Two</h4>
+            <p class="text-gray-600">An e-commerce landing page designed with TailwindCSS and Alpine.js.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-4xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-bold mb-4">Contact</h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded" />
+        <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded" />
+        <textarea placeholder="Your Message" rows="5" class="w-full p-3 border border-gray-300 rounded"></textarea>
+        <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-200">
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>
