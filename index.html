@@ -841,16 +841,21 @@
         font-size: 0.95rem;
       }
 
+      /* ==========================================
+         SCROLL REVEAL ANIMATIONS
+         ========================================== */
       .reveal {
         opacity: 0;
         transform: translate3d(0, 28px, 0);
         will-change: transform, opacity;
       }
 
+      /* Base Reveal Animation Setup */
       .reveal.is-visible {
-        animation: revealUp 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: revealUp 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
       }
 
+      /* Directional Initial Positions */
       .reveal-left {
         transform: translate3d(-40px, 0, 0);
       }
@@ -863,47 +868,43 @@
         transform: translate3d(0, 32px, 0);
       }
 
-      .reveal.is-visible.reveal-left,
-      .reveal.is-visible.reveal-right,
+      /* Hook Directional Animations when Visible */
+      .reveal.is-visible.reveal-left {
+        animation-name: revealLeft;
+      }
+
+      .reveal.is-visible.reveal-right {
+        animation-name: revealRight;
+      }
+
       .reveal.is-visible.reveal-up {
-        animation-name: revealSlide;
+        animation-name: revealUp;
       }
 
-      body.page-ready .hero-copy > * {
-        animation: heroStagger 900ms cubic-bezier(0.25, 1, 0.5, 1) both;
-      }
-
-      body.page-ready .hero-copy > *:nth-child(1) {
-        animation-name: heroDrop;
-        animation-delay: 40ms;
-      }
-
-      body.page-ready .hero-copy > *:nth-child(2) {
-        animation-delay: 160ms;
-      }
-
-      body.page-ready .hero-copy > *:nth-child(3) {
-        animation-delay: 280ms;
-      }
-
-      body.page-ready .hero-copy > *:nth-child(4) {
-        animation-delay: 400ms;
-      }
-
-      body.page-ready .hero-copy > *:nth-child(5) {
-        animation-delay: 520ms;
-      }
-
+      /* Stagger Delays (Applicable to both animations and transitions) */
       .reveal-delay-1 {
-        transition-delay: 80ms;
+        animation-delay: 100ms;
+        transition-delay: 100ms;
       }
 
       .reveal-delay-2 {
-        transition-delay: 160ms;
+        animation-delay: 200ms;
+        transition-delay: 200ms;
       }
 
       .reveal-delay-3 {
-        transition-delay: 240ms;
+        animation-delay: 300ms;
+        transition-delay: 300ms;
+      }
+
+      .reveal-delay-4 {
+        animation-delay: 400ms;
+        transition-delay: 400ms;
+      }
+
+      .reveal-delay-5 {
+        animation-delay: 500ms;
+        transition-delay: 500ms;
       }
 
       .mobile-nav {
@@ -992,30 +993,36 @@
         }
       }
 
+      /* Accessibility & Reduced Motion Settings */
       @media (prefers-reduced-motion: reduce) {
         html {
-          scroll-behavior: auto;
+          scroll-behavior: auto !important;
         }
 
         *,
         *::before,
         *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
+          animation: none !important;
+          transition: none !important;
           scroll-behavior: auto !important;
         }
 
-        .reveal {
-          opacity: 1;
-          transform: none;
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-up {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
         }
       }
 
-      @keyframes heroDrop {
+      /* Animation Keyframes */
+      @keyframes revealUp {
         from {
           opacity: 0;
-          transform: translate3d(0, -22px, 0);
+          transform: translate3d(0, 32px, 0);
         }
         to {
           opacity: 1;
@@ -1023,10 +1030,10 @@
         }
       }
 
-      @keyframes heroStagger {
+      @keyframes revealLeft {
         from {
           opacity: 0;
-          transform: translate3d(0, 24px, 0);
+          transform: translate3d(-40px, 0, 0);
         }
         to {
           opacity: 1;
@@ -1034,10 +1041,10 @@
         }
       }
 
-      @keyframes revealSlide {
+      @keyframes revealRight {
         from {
           opacity: 0;
-          transform: translate3d(var(--slide-x, 0), var(--slide-y, 0), 0);
+          transform: translate3d(40px, 0, 0);
         }
         to {
           opacity: 1;
@@ -1087,15 +1094,15 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Portfolio / Product-minded developer</span>
-            <h1 class="hero-heading">
+            <span class="eyebrow reveal reveal-up">Portfolio / Product-minded developer</span>
+            <h1 class="hero-heading reveal reveal-up reveal-delay-1">
               <span class="accent">Hi, I'm Daniel</span>
               <span>Software Developer</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle reveal reveal-up reveal-delay-2">
               I design and build polished Flutter and frontend experiences with a strong focus on performance, clarity, and the kind of visual craft that makes a portfolio feel premium.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions reveal reveal-up reveal-delay-3">
               <a class="button" href="#projects">View projects</a>
               <a class="button-secondary" href="mailto:daniel1antonyy@gmail.com">Start a conversation</a>
             </div>
@@ -1143,16 +1150,16 @@
           <div class="about-card about-image-wrap reveal reveal-left">
             <img src="assets/about-image.jpeg" alt="Daniel working portrait" />
           </div>
-          <div class="about-content reveal reveal-right reveal-delay-1">
+          <div class="about-content">
             <div class="section-head">
-              <span class="eyebrow">About me</span>
-              <h2 class="section-title">A developer who cares about the product, not just the code.</h2>
-              <p class="section-copy">
+              <span class="eyebrow reveal reveal-up">About me</span>
+              <h2 class="section-title reveal reveal-up reveal-delay-1">A developer who cares about the product, not just the code.</h2>
+              <p class="section-copy reveal reveal-up reveal-delay-2">
                 I'm a software developer with experience across frontend and mobile development, specializing in Flutter. I have shipped cross-platform apps, integrated Firebase, Google APIs, WebSockets, and AI services, and worked with modern patterns such as Clean Architecture, MVVM, MVP, and MVC.
               </p>
             </div>
 
-            <div class="story-card">
+            <div class="story-card reveal reveal-up reveal-delay-3">
               <div class="story-list">
                 <div class="story-item">
                   <span class="bullet"></span>
@@ -1170,15 +1177,15 @@
             </div>
 
             <div class="experience-grid">
-              <div class="experience-stat">
+              <div class="experience-stat reveal reveal-up reveal-delay-1">
                 <strong>3+</strong>
                 <span>Years of experience</span>
               </div>
-              <div class="experience-stat">
+              <div class="experience-stat reveal reveal-up reveal-delay-2">
                 <strong>2</strong>
                 <span>Featured portfolio projects</span>
               </div>
-              <div class="experience-stat">
+              <div class="experience-stat reveal reveal-up reveal-delay-3">
                 <strong>100%</strong>
                 <span>Focus on polished UX</span>
               </div>
@@ -1190,9 +1197,9 @@
       <section id="projects" class="projects">
         <div class="container">
           <div class="section-head center">
-            <span class="eyebrow">Selected work</span>
-            <h2 class="section-title">Projects with practical depth and a premium finish.</h2>
-            <p class="section-copy" style="max-width: 66ch;">
+            <span class="eyebrow reveal reveal-up">Selected work</span>
+            <h2 class="section-title reveal reveal-up reveal-delay-1">Projects with practical depth and a premium finish.</h2>
+            <p class="section-copy reveal reveal-up reveal-delay-2" style="max-width: 66ch;">
               Each card is designed to feel more like a product case study than a plain gallery item, with stronger hierarchy, richer motion, and clear calls to action.
             </p>
           </div>
@@ -1242,9 +1249,9 @@
       <section id="contact" class="contact">
         <div class="container">
           <div class="section-head center">
-            <span class="eyebrow">Contact</span>
-            <h2 class="section-title">Let's build something memorable.</h2>
-            <p class="section-copy" style="max-width: 58ch;">
+            <span class="eyebrow reveal reveal-up">Contact</span>
+            <h2 class="section-title reveal reveal-up reveal-delay-1">Let's build something memorable.</h2>
+            <p class="section-copy reveal reveal-up reveal-delay-2" style="max-width: 58ch;">
               If you're looking for a polished mobile or frontend experience, these are the fastest ways to reach me.
             </p>
           </div>
