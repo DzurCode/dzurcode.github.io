@@ -1,1419 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b1220" />
-    <title>Daniel | Portfolio</title>
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #07111f;
-        --bg-elevated: rgba(8, 16, 30, 0.72);
-        --bg-soft: rgba(255, 255, 255, 0.04);
-        --surface: rgba(13, 24, 42, 0.76);
-        --surface-strong: rgba(9, 18, 31, 0.92);
-        --border: rgba(255, 255, 255, 0.12);
-        --text: #eff4ff;
-        --muted: #a9b7d0;
-        --line: rgba(255, 255, 255, 0.08);
-        --accent: #ff7a59;
-        --accent-2: #ffb36b;
-        --accent-3: #7ce7d5;
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
-        --radius-lg: 28px;
-        --radius-md: 20px;
-        --radius-sm: 14px;
-        --container: 1180px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top left, rgba(255, 122, 89, 0.16), transparent 28%),
-          radial-gradient(circle at 80% 10%, rgba(124, 231, 213, 0.12), transparent 20%),
-          radial-gradient(circle at 50% 0%, rgba(255, 179, 107, 0.1), transparent 18%),
-          linear-gradient(180deg, #07111f 0%, #091421 48%, #050b14 100%);
-        font-family: "Plus Jakarta Sans", sans-serif;
-        overflow-x: hidden;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-        background-size: 48px 48px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 80%);
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .container {
-        width: min(var(--container), calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        padding: 0.55rem 0.9rem;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--muted);
-        font-size: 0.86rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 0 0.3rem rgba(255, 122, 89, 0.12);
-      }
-
-      .section-title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        line-height: 0.98;
-        margin: 0;
-        letter-spacing: -0.04em;
-      }
-
-      .section-copy {
-        color: var(--muted);
-        font-size: clamp(1rem, 1.8vw, 1.1rem);
-        line-height: 1.8;
-        margin: 0;
-      }
-
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(18px);
-        background: linear-gradient(180deg, rgba(7, 17, 31, 0.88), rgba(7, 17, 31, 0.58));
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        min-height: 84px;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.9rem;
-        min-width: 0;
-      }
-
-      .brand img {
-        width: 3.25rem;
-        height: 3.25rem;
-        border-radius: 1rem;
-        object-fit: cover;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      }
-
-      .brand-copy {
-        display: grid;
-        gap: 0.1rem;
-      }
-
-      .brand-copy strong {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 1rem;
-        letter-spacing: -0.03em;
-      }
-
-      .brand-copy span {
-        color: var(--muted);
-        font-size: 0.88rem;
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 0.9rem;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.4rem;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .nav-links a {
-        position: relative;
-        padding: 0.75rem 1rem;
-        border-radius: 999px;
-        color: var(--muted);
-        font-size: 0.95rem;
-        transition: color 180ms ease, transform 180ms ease;
-        will-change: transform;
-        overflow: hidden;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        left: 1rem;
-        right: 1rem;
-        bottom: 0.45rem;
-        height: 2px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
-        transform: scaleX(0);
-        transform-origin: center;
-        opacity: 0;
-        transition: transform 220ms ease, opacity 220ms ease;
-      }
-
-      .nav-links a::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(255, 122, 89, 0.16), rgba(255, 179, 107, 0.14));
-        transform: translateX(-105%);
-        opacity: 0;
-        transition: transform 320ms cubic-bezier(0.25, 1, 0.5, 1), opacity 220ms ease;
-        z-index: -1;
-      }
-
-      .nav-links a:hover,
-      .nav-links a:focus-visible {
-        color: var(--text);
-        transform: translateY(-1px) scale(1.01);
-      }
-
-      .nav-links a:hover::after,
-      .nav-links a:focus-visible::after {
-        transform: scaleX(1);
-        opacity: 1;
-      }
-
-      .nav-links a:hover::before,
-      .nav-links a:focus-visible::before {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
-      .button,
-      .button-secondary,
-      .contact-link,
-      .project-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.55rem;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
-        will-change: transform, opacity;
-        overflow: hidden;
-        isolation: isolate;
-      }
-
-      .button::before,
-      .button-secondary::before,
-      .project-link::before,
-      .contact-link::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(255, 122, 89, 0.18), rgba(255, 179, 107, 0.2));
-        transform: translateX(-120%);
-        opacity: 0;
-        transition: transform 420ms cubic-bezier(0.25, 1, 0.5, 1), opacity 220ms ease;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .button > *,
-      .button-secondary > *,
-      .project-link > *,
-      .contact-link > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .button {
-        padding: 0.95rem 1.35rem;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #0a1220;
-        box-shadow: 0 18px 40px rgba(255, 122, 89, 0.28);
-        font-weight: 700;
-      }
-
-      .button-secondary {
-        padding: 0.95rem 1.35rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-color: rgba(255, 255, 255, 0.14);
-        color: var(--text);
-      }
-
-      .button:hover,
-      .button-secondary:hover,
-      .contact-link:hover,
-      .project-link:hover,
-      .button:focus-visible,
-      .button-secondary:focus-visible,
-      .contact-link:focus-visible,
-      .project-link:focus-visible {
-        transform: translateY(-2px);
-      }
-
-      .button:hover::before,
-      .button-secondary:hover::before,
-      .project-link:hover::before,
-      .contact-link:hover::before {
-        transform: translateX(120%);
-        opacity: 1;
-      }
-
-      .button:hover,
-      .button-secondary:hover,
-      .project-link:hover,
-      .contact-link:hover {
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
-      }
-
-      .button:active,
-      .button-secondary:active,
-      .project-link:active,
-      .contact-link:active,
-      .nav-links a:active {
-        transform: translateY(0) scale(0.98);
-      }
-
-      .menu-button {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--text);
-      }
-
-      .hero {
-        position: relative;
-        padding: clamp(3rem, 6vw, 5rem) 0 2rem;
-      }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
-        gap: clamp(2rem, 5vw, 4.5rem);
-        align-items: center;
-      }
-
-      .hero-copy {
-        display: grid;
-        gap: 1.35rem;
-      }
-
-      .hero-copy > * {
-        will-change: transform, opacity;
-      }
-
-      .hero-heading {
-        display: grid;
-        gap: 0.45rem;
-        margin: 0;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(3rem, 7vw, 5.75rem);
-        line-height: 0.92;
-        letter-spacing: -0.06em;
-      }
-
-      .hero-heading .accent {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-      }
-
-      .hero-heading .accent::after {
-        content: "";
-        width: 0.45rem;
-        height: 0.45rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 0 0.28rem rgba(255, 122, 89, 0.15);
-      }
-
-      .hero-subtitle {
-        max-width: 58ch;
-        color: var(--muted);
-        font-size: clamp(1rem, 1.6vw, 1.15rem);
-        line-height: 1.8;
-        margin: 0;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-      }
-
-      .hero-meta {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.9rem;
-        margin-top: 0.5rem;
-      }
-
-      .meta-card {
-        padding: 1rem 1.15rem;
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(14px);
-      }
-
-      .meta-card strong {
-        display: block;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-        letter-spacing: -0.04em;
-      }
-
-      .meta-card span {
-        display: block;
-        margin-top: 0.25rem;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .hero-visual {
-        position: relative;
-        isolation: isolate;
-        display: grid;
-        place-items: center;
-        min-height: 660px;
-      }
-
-      .portrait-shell {
-        position: relative;
-        width: min(100%, 540px);
-        aspect-ratio: 1 / 1.12;
-        border-radius: 36px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-          linear-gradient(180deg, rgba(15, 24, 41, 0.72), rgba(7, 13, 24, 0.9));
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .portrait-shell::before,
-      .portrait-shell::after {
-        content: "";
-        position: absolute;
-        inset: auto;
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .portrait-shell::before {
-        inset: 7% 11% auto auto;
-        width: 68%;
-        height: 68%;
-        border: 12px solid rgba(255, 122, 89, 0.86);
-        filter: drop-shadow(0 0 42px rgba(255, 122, 89, 0.28));
-        opacity: 0.92;
-      }
-
-      .portrait-shell::after {
-        inset: auto auto 5% 8%;
-        width: 24%;
-        height: 24%;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        transform: rotate(-18deg);
-      }
-
-      .portrait-shell img {
-        position: absolute;
-        inset: 10% 14% 0;
-        width: calc(100% - 28%);
-        height: 90%;
-        object-fit: cover;
-        object-position: center top;
-        border-radius: 28px;
-        z-index: 1;
-        filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.34));
-      }
-
-      .orb,
-      .orb-2,
-      .orb-3 {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(1px);
-        opacity: 0.8;
-      }
-
-      .orb {
-        inset: 12% auto auto -4%;
-        width: 8rem;
-        height: 8rem;
-        background: radial-gradient(circle, rgba(124, 231, 213, 0.22), transparent 68%);
-      }
-
-      .orb-2 {
-        right: 0;
-        top: 18%;
-        width: 6rem;
-        height: 6rem;
-        background: radial-gradient(circle, rgba(255, 179, 107, 0.24), transparent 68%);
-      }
-
-      .orb-3 {
-        left: 12%;
-        bottom: 2%;
-        width: 10rem;
-        height: 10rem;
-        background: radial-gradient(circle, rgba(255, 122, 89, 0.18), transparent 70%);
-      }
-
-      .skills-band {
-        margin-top: 1.5rem;
-        padding: 1rem 0;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        overflow: hidden;
-      }
-
-      .skills-track {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .skill-pill {
-        padding: 0.8rem 1rem;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.035);
-        color: var(--muted);
-        min-width: 8.5rem;
-        text-align: center;
-        transition: transform 180ms ease, color 180ms ease, background 180ms ease;
-      }
-
-      .skill-pill:hover {
-        transform: translateY(-2px);
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .about,
-      .projects,
-      .contact {
-        padding: clamp(4.5rem, 8vw, 7rem) 0;
-      }
-
-      .split-section {
-        display: grid;
-        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-        gap: clamp(1.8rem, 4vw, 3.5rem);
-        align-items: center;
-      }
-
-      .about-card,
-      .project-card,
-      .contact-card,
-      .story-card {
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow);
-      }
-
-      .about-image-wrap {
-        position: relative;
-        border-radius: 32px;
-        overflow: hidden;
-        min-height: 560px;
-      }
-
-      .about-image-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .about-image-wrap::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(7, 17, 31, 0.02), rgba(7, 17, 31, 0.6));
-      }
-
-      .about-content {
-        display: grid;
-        gap: 1.15rem;
-      }
-
-      .story-card {
-        padding: 1.5rem;
-        border-radius: 26px;
-      }
-
-      .story-list {
-        display: grid;
-        gap: 0.9rem;
-        margin: 0;
-      }
-
-      .story-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-
-      .story-item .bullet {
-        margin-top: 0.3rem;
-        width: 0.7rem;
-        height: 0.7rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 0 0.32rem rgba(255, 122, 89, 0.12);
-        flex: none;
-      }
-
-      .story-item p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      .experience-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .experience-stat {
-        padding: 1rem;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .experience-stat strong {
-        display: block;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(1.8rem, 3vw, 2.45rem);
-        line-height: 1;
-      }
-
-      .experience-stat span {
-        display: block;
-        margin-top: 0.3rem;
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .section-head {
-        display: grid;
-        gap: 0.9rem;
-        margin-bottom: 2rem;
-      }
-
-      .section-head.center {
-        text-align: center;
-        justify-items: center;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-      }
-
-      .project-card {
-        border-radius: 28px;
-        overflow: hidden;
-        position: relative;
-        display: grid;
-        grid-template-rows: auto 1fr;
-        min-height: 100%;
-        transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
-        will-change: transform;
-      }
-
-      .project-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top, rgba(255, 122, 89, 0.12), transparent 45%);
-        opacity: 0;
-        transition: opacity 240ms ease;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .project-media {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 16 / 11;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .project-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 420ms ease, filter 420ms ease;
-        will-change: transform, filter;
-      }
-
-      .project-card:hover .project-media img {
-        transform: scale(1.04);
-        filter: saturate(1.08) contrast(1.02);
-      }
-
-      .project-card:hover {
-        transform: translateY(-8px) scale(1.01);
-        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
-        border-color: rgba(255, 255, 255, 0.18);
-      }
-
-      .project-card:hover::before {
-        opacity: 1;
-      }
-
-      .project-body {
-        display: grid;
-        gap: 0.9rem;
-        padding: 1.4rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      .project-kicker {
-        color: var(--accent-3);
-        font-size: 0.82rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-
-      .project-title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(1.45rem, 2.2vw, 2rem);
-        letter-spacing: -0.04em;
-        margin: 0;
-      }
-
-      .project-desc {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.8;
-      }
-
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-      }
-
-      .tag {
-        padding: 0.45rem 0.75rem;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--muted);
-        font-size: 0.82rem;
-        background: rgba(255, 255, 255, 0.035);
-      }
-
-      .project-actions {
-        display: flex;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-        margin-top: 0.35rem;
-      }
-
-      .project-link {
-        padding: 0.85rem 1.05rem;
-        border-color: rgba(255, 255, 255, 0.14);
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .contact-card {
-        border-radius: 24px;
-        padding: 1.35rem;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        min-height: 118px;
-        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-        will-change: transform;
-      }
-
-      .contact-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, 0.18);
-        box-shadow: 0 24px 72px rgba(0, 0, 0, 0.34);
-      }
-
-      .contact-icon {
-        width: 3.4rem;
-        height: 3.4rem;
-        flex: none;
-        border-radius: 18px;
-        padding: 0.65rem;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .contact-copy strong {
-        display: block;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 1.1rem;
-        margin-bottom: 0.2rem;
-      }
-
-      .contact-copy span {
-        color: var(--muted);
-        line-height: 1.5;
-        display: block;
-      }
-
-      .contact-link:hover .contact-icon,
-      .contact-link:focus-visible .contact-icon {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .site-footer {
-        padding: 1.35rem 0 2.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--muted);
-        text-align: center;
-        font-size: 0.95rem;
-      }
-
-      /* ==========================================
-         SCROLL REVEAL ANIMATIONS
-         ========================================== */
-      .reveal {
-        opacity: 0;
-        transform: translate3d(0, 28px, 0);
-        will-change: transform, opacity;
-      }
-
-      /* Base Reveal Animation Setup */
-      .reveal.is-visible {
-        animation: revealUp 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-
-      /* Directional Initial Positions */
-      .reveal-left {
-        transform: translate3d(-40px, 0, 0);
-      }
-
-      .reveal-right {
-        transform: translate3d(40px, 0, 0);
-      }
-
-      .reveal-up {
-        transform: translate3d(0, 32px, 0);
-      }
-
-      /* Hook Directional Animations when Visible */
-      .reveal.is-visible.reveal-left {
-        animation-name: revealLeft;
-      }
-
-      .reveal.is-visible.reveal-right {
-        animation-name: revealRight;
-      }
-
-      .reveal.is-visible.reveal-up {
-        animation-name: revealUp;
-      }
-
-      /* Stagger Delays (Applicable to both animations and transitions) */
-      .reveal-delay-1 {
-        animation-delay: 100ms;
-        transition-delay: 100ms;
-      }
-
-      .reveal-delay-2 {
-        animation-delay: 200ms;
-        transition-delay: 200ms;
-      }
-
-      .reveal-delay-3 {
-        animation-delay: 300ms;
-        transition-delay: 300ms;
-      }
-
-      .reveal-delay-4 {
-        animation-delay: 400ms;
-        transition-delay: 400ms;
-      }
-
-      .reveal-delay-5 {
-        animation-delay: 500ms;
-        transition-delay: 500ms;
-      }
-
-      .mobile-nav {
-        display: none;
-        padding: 0 0 1rem;
-      }
-
-      .mobile-nav-panel {
-        display: grid;
-        gap: 0.35rem;
-        padding: 0.9rem;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        background: rgba(7, 17, 31, 0.92);
-        box-shadow: var(--shadow);
-      }
-
-      .mobile-nav-panel a {
-        padding: 0.9rem 1rem;
-        border-radius: 16px;
-        color: var(--muted);
-      }
-
-      .mobile-nav-panel a:hover,
-      .mobile-nav-panel a:focus-visible {
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--text);
-      }
-
-      @media (max-width: 1080px) {
-        .hero-grid,
-        .split-section,
-        .projects-grid,
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-visual {
-          min-height: 540px;
-          order: -1;
-        }
-
-        .experience-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 820px) {
-        .nav-links,
-        .nav .button-secondary {
-          display: none;
-        }
-
-        .menu-button {
-          display: inline-flex;
-        }
-
-        .mobile-nav.is-open {
-          display: block;
-        }
-
-        .header-inner {
-          min-height: 76px;
-        }
-
-        .hero {
-          padding-top: 2rem;
-        }
-
-        .hero-meta {
-          grid-template-columns: 1fr;
-        }
-
-        .portrait-shell {
-          width: min(100%, 420px);
-          aspect-ratio: 1 / 1.18;
-        }
-
-        .portrait-shell img {
-          inset: 8% 10% 0;
-          width: calc(100% - 20%);
-        }
-
-        .about-image-wrap {
-          min-height: 440px;
-        }
-      }
-
-      /* Accessibility & Reduced Motion Settings */
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto !important;
-        }
-
-        *,
-        *::before,
-        *::after {
-          animation: none !important;
-          transition: none !important;
-          scroll-behavior: auto !important;
-        }
-
-        .reveal,
-        .reveal-left,
-        .reveal-right,
-        .reveal-up {
-          opacity: 1 !important;
-          transform: none !important;
-          transition: none !important;
-          animation: none !important;
-        }
-      }
-
-      /* Animation Keyframes */
-      @keyframes revealUp {
-        from {
-          opacity: 0;
-          transform: translate3d(0, 32px, 0);
-        }
-        to {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-        }
-      }
-
-      @keyframes revealLeft {
-        from {
-          opacity: 0;
-          transform: translate3d(-40px, 0, 0);
-        }
-        to {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-        }
-      }
-
-      @keyframes revealRight {
-        from {
-          opacity: 0;
-          transform: translate3d(40px, 0, 0);
-        }
-        to {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="brand" href="#home" aria-label="Daniel portfolio home">
-            <span class="brand-copy">
-              <strong>Daniel Antony</strong>
-              <span>Flutter and frontend developer</span>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Daniel | Portfolio</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/output.css" />
+</head>
+
+<body class="m-0 text-text bg-bg overflow-x-hidden font-sans">
+  <header
+    class="site-header sticky top-0 z-50 backdrop-blur-[18px] bg-gradient-to-b from-bg/90 to-bg/60 border-b border-white/5">
+    <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between gap-4 min-h-[76px] md:min-h-[84px]">
+        <a class="brand inline-flex items-center gap-3.5 min-w-0" href="#home" aria-label="Daniel portfolio home">
+          <span class="brand-copy grid gap-[1px]">
+            <strong class="font-space text-base tracking-[-0.03em] font-bold">Daniel Antony</strong>
+            <span class="text-muted text-[0.88rem]">Flutter and frontend developer</span>
+          </span>
+        </a>
+
+        <nav class="nav flex items-center gap-3.5" aria-label="Primary">
+          <div class="nav-links hidden md:flex items-center gap-1.5 p-1.5 border border-border rounded-full bg-white/5">
+            <a href="#about"
+              class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">About</a>
+            <a href="#projects"
+              class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Projects</a>
+            <a href="#contact"
+              class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Contact</a>
+          </div>
+          <a class="button-secondary btn-slide relative inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-[1.35rem] py-[0.95rem] bg-white/[0.03] text-text font-medium transition-all duration-180 hover:-translate-y-0.5 active:scale-98 overflow-hidden isolate"
+            href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">
+            <span>Hire me</span>
+          </a>
+          <button
+            class="menu-button flex md:hidden items-center justify-center w-12 h-12 rounded-full border border-border bg-white/5 text-text"
+            id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+
+      <div class="mobile-nav hidden p-0 pb-4" id="mobile-menu">
+        <div class="mobile-nav-panel grid gap-1.5 p-3.5 border border-border rounded-3xl bg-bg/95 shadow-2xl">
+          <a href="#about" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">About</a>
+          <a href="#projects" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Projects</a>
+          <a href="#contact" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Contact</a>
+          <a href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer"
+            class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Hire me</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero relative py-12 md:py-16 lg:py-20 pb-8">
+      <div
+        class="w-full max-w-[1180px] mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-8 lg:gap-18 items-center">
+        <div class="hero-copy grid gap-[1.35rem]">
+          <span
+            class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase reveal reveal-up">Portfolio
+            / Product-minded developer</span>
+          <h1
+            class="hero-heading grid gap-2 m-0 font-space text-[3rem] md:text-[4.5rem] lg:text-[5.75rem] leading-[0.92] tracking-[-0.06em] reveal reveal-up reveal-delay-1">
+            <span class="accent inline-flex items-center gap-2">Hi, I'm Daniel</span>
+            <span>Software Developer</span>
+          </h1>
+          <p
+            class="hero-subtitle max-w-[58ch] text-muted text-[1rem] md:text-[1.08rem] lg:text-[1.15rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2">
+            I design and build polished Flutter and frontend experiences with a strong focus on performance, clarity,
+            and the kind of visual craft that makes a portfolio feel premium.
+          </p>
+          <div class="hero-actions flex flex-wrap gap-3.5 reveal reveal-up reveal-delay-3">
+            <a class="button btn-slide" href="#projects">
+              <span>View projects</span>
+            </a>
+            <a class="button-secondary btn-slide" href="mailto:daniel1antonyy@gmail.com">
+              <span>Start a conversation</span>
+            </a>
+          </div>
+          <div class="hero-meta grid grid-cols-1 md:grid-cols-3 gap-3.5 mt-2">
+            <div
+              class="meta-card p-4 md:p-[1rem_1.15rem] border border-border rounded-[18px] bg-white/[0.04] backdrop-blur-[14px] reveal reveal-delay-1">
+              <strong
+                class="block font-space text-[1.4rem] md:text-[1.65rem] lg:text-[1.9rem] leading-none tracking-[-0.04em] font-bold">3+
+                years</strong>
+              <span class="block mt-1 text-muted text-[0.9rem]">Building real products</span>
+            </div>
+            <div
+              class="meta-card p-4 md:p-[1rem_1.15rem] border border-border rounded-[18px] bg-white/[0.04] backdrop-blur-[14px] reveal reveal-delay-2">
+              <strong
+                class="block font-space text-[1.4rem] md:text-[1.65rem] lg:text-[1.9rem] leading-none tracking-[-0.04em] font-bold">Flutter</strong>
+              <span class="block mt-1 text-muted text-[0.9rem]">Cross-platform focus</span>
+            </div>
+            <div
+              class="meta-card p-4 md:p-[1rem_1.15rem] border border-border rounded-[18px] bg-white/[0.04] backdrop-blur-[14px] reveal reveal-delay-3">
+              <strong
+                class="block font-space text-[1.4rem] md:text-[1.65rem] lg:text-[1.9rem] leading-none tracking-[-0.04em] font-bold">Full
+                stack</strong>
+              <span class="block mt-1 text-muted text-[0.9rem]">Frontend to backend flow</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="hero-visual relative grid place-items-center min-h-[540px] lg:min-h-[660px] order-first lg:order-none reveal reveal-right"
+          aria-hidden="true">
+          <div class="orb"></div>
+          <div class="orb-2"></div>
+          <div class="orb-3"></div>
+          <div class="portrait-shell">
+            <img
+              class="absolute inset-x-[14%] top-[10%] bottom-0 w-[72%] h-[90%] object-cover object-top rounded-[28px] z-10 filter drop-shadow-[0_24px_50px_rgba(0,0,0,0.34)]"
+              src="assets/hero-image.png" alt="Daniel portrait" />
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-band mt-6 py-4 border-t border-b border-line overflow-hidden">
+        <div
+          class="w-full max-w-[1180px] mx-auto px-4 md:px-6 flex items-center gap-4 flex-wrap justify-center reveal reveal-up reveal-delay-1">
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Flutter</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Dart</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Firebase</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Google
+            APIs</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">WebSockets</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Clean
+            Architecture</span>
+          <span
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">UI
+            Craft</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about py-16 md:py-24 lg:py-28">
+      <div
+        class="w-full max-w-[1180px] mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-14 items-center">
+        <div
+          class="about-card about-image-wrap relative rounded-[32px] overflow-hidden h-[440px] md:h-[560px] border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl reveal reveal-left">
+          <img class="w-full h-full object-cover" src="assets/about-image.jpeg" alt="Daniel working portrait" />
+        </div>
+        <div class="about-content grid gap-[1.15rem]">
+          <div class="section-head grid gap-3.5 mb-8">
+            <span
+              class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase reveal reveal-up">About
+              me</span>
+            <h2
+              class="section-title font-space text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-[0.98] tracking-[-0.04em] m-0 reveal reveal-up reveal-delay-1">
+              A developer who cares about the product, not just the code.</h2>
+            <p
+              class="section-copy text-muted text-[1rem] md:text-[1.05rem] lg:text-[1.1rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2">
+              I'm a software developer with experience across frontend and mobile development, specializing in Flutter.
+              I have shipped cross-platform apps, integrated Firebase, Google APIs, WebSockets, and AI services, and
+              worked with modern patterns such as Clean Architecture, MVVM, MVP, and MVC.
+            </p>
+          </div>
+
+          <div
+            class="story-card p-6 border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[26px] reveal reveal-up reveal-delay-3">
+            <div class="story-list grid gap-3.5 m-0">
+              <div class="story-item flex items-start gap-4">
+                <span
+                  class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.75]">Strong backend awareness lets me move comfortably across the
+                  stack and adapt to different product requirements.</p>
+              </div>
+              <div class="story-item flex items-start gap-4">
+                <span
+                  class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.75]">I focus on elegant structure, smooth UX, and maintainable
+                  delivery so the final product feels intentional and scalable.</p>
+              </div>
+              <div class="story-item flex items-start gap-4">
+                <span
+                  class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.75]">My working style values teamwork, clarity, and high-quality
+                  execution with a premium, user-first finish.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="experience-stat p-4 border border-white/[0.08] bg-white/[0.03] rounded-[20px] reveal reveal-up reveal-delay-1">
+              <strong
+                class="block font-space text-[1.8rem] md:text-[2.1rem] lg:text-[2.45rem] leading-none font-bold">3+</strong>
+              <span class="block mt-1 text-muted text-[0.92rem]">Years of experience</span>
+            </div>
+            <div
+              class="experience-stat p-4 border border-white/[0.08] bg-white/[0.03] rounded-[20px] reveal reveal-up reveal-delay-2">
+              <strong
+                class="block font-space text-[1.8rem] md:text-[2.1rem] lg:text-[2.45rem] leading-none font-bold">2</strong>
+              <span class="block mt-1 text-muted text-[0.92rem]">Featured portfolio projects</span>
+            </div>
+            <div
+              class="experience-stat p-4 border border-white/[0.08] bg-white/[0.03] rounded-[20px] reveal reveal-up reveal-delay-3">
+              <strong
+                class="block font-space text-[1.8rem] md:text-[2.1rem] lg:text-[2.45rem] leading-none font-bold">100%</strong>
+              <span class="block mt-1 text-muted text-[0.92rem]">Focus on polished UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects py-16 md:py-24 lg:py-28">
+      <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+        <div class="section-head text-center flex flex-col items-center gap-3.5 mb-8">
+          <span
+            class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase reveal reveal-up">Selected
+            work</span>
+          <h2
+            class="section-title font-space text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-[0.98] tracking-[-0.04em] m-0 reveal reveal-up reveal-delay-1">
+            Projects with practical depth and a premium finish.</h2>
+          <p class="section-copy text-muted text-[1rem] md:text-[1.05rem] lg:text-[1.1rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2"
+            style="max-width: 66ch;">
+            Each card is designed to feel more like a product case study than a plain gallery item, with stronger
+            hierarchy, richer motion, and clear calls to action.
+          </p>
+        </div>
+
+        <div class="projects-grid grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <!-- App Pasa -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/Pasa/UI_1.jpeg" alt="App Pasa preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Blockchain
+                Wallet</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                App Pasa</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Cross-platform digital wallet for cryptocurrency
+                deposits, withdrawals, and transfers within the Stellar Blockchain ecosystem.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Clean
+                  Architecture</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Stellar
+                  SDK</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-app-pasa.html">
+                  <span>View Details</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Xambio App -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up reveal-delay-1">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/xambio/UI_1.png" alt="Xambio App preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">React / Exchange Web
+              </div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                Xambio App</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Web interface in React with Redux for a currency
+                exchange system, supported by a secure REST API in NestJS.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">React</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">NestJS</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Docker</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-xambio.html">
+                  <span>View Details</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Luchito App -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/luchito/luchito-app.png" alt="Luchito App preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Restaurant
+                operations</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                Luchito App</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Order management system for restaurants built in
+                Flutter with a Clean Architecture approach, focused on a fast and reliable mobile experience.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Clean
+                  Architecture</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Mobile
+                  App</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-luchito.html">
+                  <span>View Details</span>
+                </a>
+                <a class="project-link relative inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-3 border border-white/15 bg-white/[0.03] text-text transition-all duration-180 hover:-translate-y-0.5 active:scale-98 overflow-hidden btn-slide"
+                  href="https://play.google.com/store/apps/details?id=com.rapifac.luchito" target="_blank"
+                  rel="noopener noreferrer">
+                  <span>Open store</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ERP Payments -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up reveal-delay-1">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/erp-rapifac/UI_1.png" alt="ERP Payments preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">.NET / Enterprise
+                Software</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                ERP — Payments Module</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Critical modules for an existing ERP system including
+                Restaurant, Accounting, and Electronic Billing areas.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">C#</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">.NET</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">JavaScript</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-erp.html">
+                  <span>View Details</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Green Map -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/Green Map/UI_1.png" alt="Green Map preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Geo
+                discovery</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                Green Map</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">An interactive Flutter app for visualizing
+                eco-friendly places with Google Maps API integration and a clean browsing experience.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Google
+                  Maps API</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Interaction
+                  design</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-green-map.html">
+                  <span>View Details</span>
+                </a>
+                <a class="project-link relative inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-3 border border-white/15 bg-white/[0.03] text-text transition-all duration-180 hover:-translate-y-0.5 active:scale-98 overflow-hidden btn-slide"
+                  href="https://github.com/DzurCode/GreenMap" target="_blank" rel="noopener noreferrer">
+                  <span>View source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- UGEL Urubamba -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up reveal-delay-1">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/ugel/UI_1.png" alt="UGEL Urubamba preview" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Angular / Web
+                Interface</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                Resolution Management Interface</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Interface for the director's resolution management
+                system in Angular with REST API integration.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Angular</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">TypeScript</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">REST
+                  APIs</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-ugel.html">
+                  <span>View Details</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact py-16 md:py-24 lg:py-28">
+      <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+        <div class="section-head text-center flex flex-col items-center gap-3.5 mb-8">
+          <span
+            class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase reveal reveal-up">Contact</span>
+          <h2
+            class="section-title font-space text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-[0.98] tracking-[-0.04em] m-0 reveal reveal-up reveal-delay-1">
+            Let's build something memorable.</h2>
+          <p class="section-copy text-muted text-[1rem] md:text-[1.05rem] lg:text-[1.1rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2"
+            style="max-width: 58ch;">
+            If you're looking for a polished mobile or frontend experience, these are the fastest ways to reach me.
+          </p>
+        </div>
+
+        <div class="contact-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a class="contact-card contact-link relative inline-flex items-center gap-4 p-[1.35rem] min-h-[118px] border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[24px] transition-all duration-220 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_72px_rgba(0,0,0,0.34)] reveal reveal-left"
+            href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">
+            <img
+              class="contact-icon w-[3.4rem] h-[3.4rem] flex-none rounded-[18px] p-2.5 bg-white/[0.06] border border-white/10 transition-all duration-200"
+              src="assets/linkedin.png" alt="LinkedIn" />
+            <span class="contact-copy flex flex-col">
+              <strong class="block font-space text-[1.1rem] font-bold mb-1">LinkedIn</strong>
+              <span class="text-muted text-[0.9rem] leading-snug">Professional profile and network.</span>
             </span>
           </a>
 
-          <nav class="nav" aria-label="Primary">
-            <div class="nav-links">
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
-            </div>
-            <a class="button-secondary" href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">Hire me</a>
-            <button class="menu-button" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              </svg>
-            </button>
-          </nav>
-        </div>
+          <a class="contact-card contact-link relative inline-flex items-center gap-4 p-[1.35rem] min-h-[118px] border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[24px] transition-all duration-220 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_72px_rgba(0,0,0,0.34)] reveal reveal-up reveal-delay-1"
+            href="https://wa.me/51959962145" target="_blank" rel="noopener noreferrer">
+            <img
+              class="contact-icon w-[3.4rem] h-[3.4rem] flex-none rounded-[18px] p-2.5 bg-white/[0.06] border border-white/10 transition-all duration-200"
+              src="assets/whatsapp.png" alt="WhatsApp" />
+            <span class="contact-copy flex flex-col">
+              <strong class="block font-space text-[1.1rem] font-bold mb-1">WhatsApp</strong>
+              <span class="text-muted text-[0.9rem] leading-snug">Fast direct conversation.</span>
+            </span>
+          </a>
 
-        <div class="mobile-nav" id="mobile-menu">
-          <div class="mobile-nav-panel">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <a href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">Hire me</a>
-          </div>
+          <a class="contact-card contact-link relative inline-flex items-center gap-4 p-[1.35rem] min-h-[118px] border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[24px] transition-all duration-220 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_72px_rgba(0,0,0,0.34)] reveal reveal-right reveal-delay-2"
+            href="mailto:daniel1antonyy@gmail.com">
+            <img
+              class="contact-icon w-[3.4rem] h-[3.4rem] flex-none rounded-[18px] p-2.5 bg-white/[0.06] border border-white/10 transition-all duration-200"
+              src="assets/gmail.png" alt="Gmail" />
+            <span class="contact-copy flex flex-col">
+              <strong class="block font-space text-[1.1rem] font-bold mb-1">Email</strong>
+              <span class="text-muted text-[0.9rem] leading-snug">Best for project briefs and proposals.</span>
+            </span>
+          </a>
         </div>
       </div>
-    </header>
+    </section>
+  </main>
 
-    <main id="home">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow reveal reveal-up">Portfolio / Product-minded developer</span>
-            <h1 class="hero-heading reveal reveal-up reveal-delay-1">
-              <span class="accent">Hi, I'm Daniel</span>
-              <span>Software Developer</span>
-            </h1>
-            <p class="hero-subtitle reveal reveal-up reveal-delay-2">
-              I design and build polished Flutter and frontend experiences with a strong focus on performance, clarity, and the kind of visual craft that makes a portfolio feel premium.
-            </p>
-            <div class="hero-actions reveal reveal-up reveal-delay-3">
-              <a class="button" href="#projects">View projects</a>
-              <a class="button-secondary" href="mailto:daniel1antonyy@gmail.com">Start a conversation</a>
-            </div>
-            <div class="hero-meta">
-              <div class="meta-card reveal reveal-delay-1">
-                <strong>3+ years</strong>
-                <span>Building real products</span>
-              </div>
-              <div class="meta-card reveal reveal-delay-2">
-                <strong>Flutter</strong>
-                <span>Cross-platform focus</span>
-              </div>
-              <div class="meta-card reveal reveal-delay-3">
-                <strong>Full stack</strong>
-                <span>Frontend to backend flow</span>
-              </div>
-            </div>
-          </div>
+  <footer class="site-footer py-[1.35rem] pb-10 border-t border-white/[0.08] text-muted text-center text-[0.95rem]">
+    <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+      <p>&copy; 2025 Daniel Antony Zuñiga Ramos. All rights reserved.</p>
+    </div>
+  </footer>
 
-          <div class="hero-visual reveal reveal-right" aria-hidden="true">
-            <div class="orb"></div>
-            <div class="orb-2"></div>
-            <div class="orb-3"></div>
-            <div class="portrait-shell">
-              <img src="assets/hero-image.png" alt="Daniel portrait" />
-            </div>
-          </div>
-        </div>
+  <script>
+    const menuButton = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const revealItems = document.querySelectorAll('.reveal');
 
-        <div class="skills-band">
-          <div class="container skills-track reveal reveal-up reveal-delay-1">
-            <span class="skill-pill">Flutter</span>
-            <span class="skill-pill">Dart</span>
-            <span class="skill-pill">Firebase</span>
-            <span class="skill-pill">Google APIs</span>
-            <span class="skill-pill">WebSockets</span>
-            <span class="skill-pill">Clean Architecture</span>
-            <span class="skill-pill">UI Craft</span>
-          </div>
-        </div>
-      </section>
+    requestAnimationFrame(() => {
+      document.body.classList.add('page-ready');
+    });
 
-      <section id="about" class="about">
-        <div class="container split-section">
-          <div class="about-card about-image-wrap reveal reveal-left">
-            <img src="assets/about-image.jpeg" alt="Daniel working portrait" />
-          </div>
-          <div class="about-content">
-            <div class="section-head">
-              <span class="eyebrow reveal reveal-up">About me</span>
-              <h2 class="section-title reveal reveal-up reveal-delay-1">A developer who cares about the product, not just the code.</h2>
-              <p class="section-copy reveal reveal-up reveal-delay-2">
-                I'm a software developer with experience across frontend and mobile development, specializing in Flutter. I have shipped cross-platform apps, integrated Firebase, Google APIs, WebSockets, and AI services, and worked with modern patterns such as Clean Architecture, MVVM, MVP, and MVC.
-              </p>
-            </div>
+    menuButton.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      // Toggle tailwind hidden class
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('block');
+    });
 
-            <div class="story-card reveal reveal-up reveal-delay-3">
-              <div class="story-list">
-                <div class="story-item">
-                  <span class="bullet"></span>
-                  <p>Strong backend awareness lets me move comfortably across the stack and adapt to different product requirements.</p>
-                </div>
-                <div class="story-item">
-                  <span class="bullet"></span>
-                  <p>I focus on elegant structure, smooth UX, and maintainable delivery so the final product feels intentional and scalable.</p>
-                </div>
-                <div class="story-item">
-                  <span class="bullet"></span>
-                  <p>My working style values teamwork, clarity, and high-quality execution with a premium, user-first finish.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="experience-grid">
-              <div class="experience-stat reveal reveal-up reveal-delay-1">
-                <strong>3+</strong>
-                <span>Years of experience</span>
-              </div>
-              <div class="experience-stat reveal reveal-up reveal-delay-2">
-                <strong>2</strong>
-                <span>Featured portfolio projects</span>
-              </div>
-              <div class="experience-stat reveal reveal-up reveal-delay-3">
-                <strong>100%</strong>
-                <span>Focus on polished UX</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="projects">
-        <div class="container">
-          <div class="section-head center">
-            <span class="eyebrow reveal reveal-up">Selected work</span>
-            <h2 class="section-title reveal reveal-up reveal-delay-1">Projects with practical depth and a premium finish.</h2>
-            <p class="section-copy reveal reveal-up reveal-delay-2" style="max-width: 66ch;">
-              Each card is designed to feel more like a product case study than a plain gallery item, with stronger hierarchy, richer motion, and clear calls to action.
-            </p>
-          </div>
-
-          <div class="projects-grid">
-            <!-- App Pasa -->
-            <article class="project-card reveal reveal-up">
-              <div class="project-media">
-                <img src="https://placehold.co/600x400/1a2332/8b9bb4?text=App+Pasa" alt="App Pasa preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">Flutter / Blockchain Wallet</div>
-                <h3 class="project-title">App Pasa</h3>
-                <p class="project-desc">Cross-platform digital wallet for cryptocurrency deposits, withdrawals, and transfers within the Stellar Blockchain ecosystem.</p>
-                <div class="project-tags">
-                  <span class="tag">Flutter</span>
-                  <span class="tag">Clean Architecture</span>
-                  <span class="tag">Stellar SDK</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-app-pasa.html">View Details</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Xambio App -->
-            <article class="project-card reveal reveal-up reveal-delay-1">
-              <div class="project-media">
-                <img src="https://placehold.co/600x400/1a2332/8b9bb4?text=Xambio+App" alt="Xambio App preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">React / Exchange Web</div>
-                <h3 class="project-title">Xambio App</h3>
-                <p class="project-desc">Web interface in React with Redux for a currency exchange system, supported by a secure REST API in NestJS.</p>
-                <div class="project-tags">
-                  <span class="tag">React</span>
-                  <span class="tag">NestJS</span>
-                  <span class="tag">Docker</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-xambio.html">View Details</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Luchito App -->
-            <article class="project-card reveal reveal-up">
-              <div class="project-media">
-                <img src="assets/luchito-app.png" alt="Luchito App preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">Flutter / Restaurant operations</div>
-                <h3 class="project-title">Luchito App</h3>
-                <p class="project-desc">Order management system for restaurants built in Flutter with a Clean Architecture approach, focused on a fast and reliable mobile experience.</p>
-                <div class="project-tags">
-                  <span class="tag">Flutter</span>
-                  <span class="tag">Clean Architecture</span>
-                  <span class="tag">Mobile App</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-luchito.html">View Details</a>
-                  <a class="project-link" href="https://play.google.com/store/apps/details?id=com.rapifac.luchito" target="_blank" rel="noopener noreferrer">Open store</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- ERP Payments -->
-            <article class="project-card reveal reveal-up reveal-delay-1">
-              <div class="project-media">
-                <img src="https://placehold.co/600x400/1a2332/8b9bb4?text=ERP+Payments" alt="ERP Payments preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">.NET / Enterprise Software</div>
-                <h3 class="project-title">ERP — Payments Module</h3>
-                <p class="project-desc">Critical modules for an existing ERP system including Restaurant, Accounting, and Electronic Billing areas.</p>
-                <div class="project-tags">
-                  <span class="tag">C#</span>
-                  <span class="tag">.NET</span>
-                  <span class="tag">JavaScript</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-erp.html">View Details</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Green Map -->
-            <article class="project-card reveal reveal-up">
-              <div class="project-media">
-                <img src="assets/green-map.png" alt="Green Map preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">Flutter / Geo discovery</div>
-                <h3 class="project-title">Green Map</h3>
-                <p class="project-desc">An interactive Flutter app for visualizing eco-friendly places with Google Maps API integration and a clean browsing experience.</p>
-                <div class="project-tags">
-                  <span class="tag">Flutter</span>
-                  <span class="tag">Google Maps API</span>
-                  <span class="tag">Interaction design</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-green-map.html">View Details</a>
-                  <a class="project-link" href="https://github.com/DzurCode/GreenMap" target="_blank" rel="noopener noreferrer">View source</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- UGEL Urubamba -->
-            <article class="project-card reveal reveal-up reveal-delay-1">
-              <div class="project-media">
-                <img src="https://placehold.co/600x400/1a2332/8b9bb4?text=UGEL+Urubamba" alt="UGEL Urubamba preview" />
-              </div>
-              <div class="project-body">
-                <div class="project-kicker">Angular / Web Interface</div>
-                <h3 class="project-title">Resolution Management Interface</h3>
-                <p class="project-desc">Interface for the director's resolution management system in Angular with REST API integration.</p>
-                <div class="project-tags">
-                  <span class="tag">Angular</span>
-                  <span class="tag">TypeScript</span>
-                  <span class="tag">REST APIs</span>
-                </div>
-                <div class="project-actions">
-                  <a class="button" href="project-ugel.html">View Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact">
-        <div class="container">
-          <div class="section-head center">
-            <span class="eyebrow reveal reveal-up">Contact</span>
-            <h2 class="section-title reveal reveal-up reveal-delay-1">Let's build something memorable.</h2>
-            <p class="section-copy reveal reveal-up reveal-delay-2" style="max-width: 58ch;">
-              If you're looking for a polished mobile or frontend experience, these are the fastest ways to reach me.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <a class="contact-card contact-link reveal reveal-left" href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">
-              <img class="contact-icon" src="assets/linkedin.png" alt="LinkedIn" />
-              <span class="contact-copy">
-                <strong>LinkedIn</strong>
-                <span>Professional profile and network.</span>
-              </span>
-            </a>
-
-            <a class="contact-card contact-link reveal reveal-up reveal-delay-1" href="https://wa.me/51959962145" target="_blank" rel="noopener noreferrer">
-              <img class="contact-icon" src="assets/whatsapp.png" alt="WhatsApp" />
-              <span class="contact-copy">
-                <strong>WhatsApp</strong>
-                <span>Fast direct conversation.</span>
-              </span>
-            </a>
-
-            <a class="contact-card contact-link reveal reveal-right reveal-delay-2" href="mailto:daniel1antonyy@gmail.com">
-              <img class="contact-icon" src="assets/gmail.png" alt="Gmail" />
-              <span class="contact-copy">
-                <strong>Email</strong>
-                <span>Best for project briefs and proposals.</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>&copy; 2025 Daniel Antony Zuñiga Ramos. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script>
-      const menuButton = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const revealItems = document.querySelectorAll('.reveal');
-
-      requestAnimationFrame(() => {
-        document.body.classList.add('page-ready');
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('block');
+        menuButton.setAttribute('aria-expanded', 'false');
       });
+    });
 
-      menuButton.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('is-open');
-        menuButton.setAttribute('aria-expanded', String(isOpen));
-      });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-      mobileMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('is-open');
-          menuButton.setAttribute('aria-expanded', 'false');
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         });
-      });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -6% 0px',
+      }
+    );
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
 
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          threshold: 0.2,
-          rootMargin: '0px 0px -6% 0px',
-        }
-      );
-
-      revealItems.forEach((item) => observer.observe(item));
-    </script>
-  </body>
 </html>
