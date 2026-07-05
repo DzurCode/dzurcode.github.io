@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/output.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 
 <body class="m-0 text-text bg-bg overflow-x-hidden font-sans">
@@ -20,24 +21,26 @@
     class="site-header sticky top-0 z-50 backdrop-blur-[18px] bg-gradient-to-b from-bg/90 to-bg/60 border-b border-white/5">
     <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
       <div class="flex items-center justify-between gap-4 min-h-[76px] md:min-h-[84px]">
-        <a class="brand inline-flex items-center gap-3.5 min-w-0" href="#home" aria-label="Inicio de portafolio de Daniel">
+        <a class="brand inline-flex items-center gap-3.5 min-w-0" href="#home"
+          aria-label="Inicio de portafolio de Daniel">
           <span class="brand-copy grid gap-[1px]">
             <strong class="font-space text-base tracking-[-0.03em] font-bold">Daniel Antony</strong>
-            <span class="text-muted text-[0.88rem]">Desarrollador Flutter y Frontend</span>
+            <span class="text-muted text-[0.88rem]">Desarrollador FullStack Flutter</span>
           </span>
         </a>
 
         <nav class="nav flex items-center gap-3.5" aria-label="Principal">
           <div class="nav-links hidden md:flex items-center gap-1.5 p-1.5 border border-border rounded-full bg-white/5">
             <a href="#about"
-              class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Sobre mí</a>
+              class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Sobre
+              mí</a>
             <a href="#projects"
               class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Proyectos</a>
             <a href="#contact"
               class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Contacto</a>
           </div>
-          <a class="button btn-slide"
-            href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">
+          <a class="button btn-slide" href="https://www.linkedin.com/in/dzurn" target="_blank"
+            rel="noopener noreferrer">
             <span>Contrátame</span>
           </a>
           <button
@@ -77,7 +80,8 @@
           </h1>
           <p
             class="hero-subtitle max-w-[58ch] text-muted text-[1rem] md:text-[1.08rem] lg:text-[1.15rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2">
-            Diseño y construyo experiencias pulidas en Flutter y frontend con un fuerte enfoque en rendimiento, claridad y el tipo de detalle visual que hace que un producto se sienta premium.
+            Diseño y construyo experiencias pulidas en Flutter y frontend con un fuerte enfoque en rendimiento, claridad
+            y el tipo de detalle visual que hace que un producto se sienta premium.
           </p>
           <div class="hero-actions flex flex-wrap gap-3.5 reveal reveal-up reveal-delay-3">
             <a class="button btn-slide" href="#projects">
@@ -111,15 +115,23 @@
           </div>
         </div>
 
-        <div
-          class="hero-visual relative grid place-items-center min-h-[540px] lg:min-h-[660px] order-first lg:order-none reveal reveal-right"
+        <div class="hero-visual relative grid place-items-center min-h-[540px] lg:min-h-[660px] reveal reveal-right"
           aria-hidden="true">
           <div class="orb"></div>
           <div class="orb-2"></div>
           <div class="orb-3"></div>
+
+          <!-- Decorative floating brackets from designUI.png -->
+          <div
+            class="decor-bracket absolute left-6 top-[22%] text-accent font-space text-[5.5rem] font-bold select-none pointer-events-none">
+            &lt;</div>
+          <div
+            class="decor-bracket right-bracket absolute right-6 bottom-[26%] text-accent-2 font-space text-[5.5rem] font-bold select-none pointer-events-none">
+            &gt;</div>
+
           <div class="portrait-shell">
             <img
-              class="absolute inset-x-[14%] top-[10%] bottom-0 w-[72%] h-[90%] object-cover object-top rounded-[28px] z-10 filter drop-shadow-[0_24px_50px_rgba(0,0,0,0.34)]"
+              class="absolute inset-x-[14%] top-[10%] bottom-0 w-[72%] h-[90%] object-cover object-bottom portrait-mask z-10 filter drop-shadow-[0_24px_50px_rgba(0,0,0,0.34)]"
               src="assets/hero-image.png" alt="Daniel portrait" />
           </div>
         </div>
@@ -129,21 +141,24 @@
         <div
           class="w-full max-w-[1180px] mx-auto px-4 md:px-6 flex items-center gap-4 flex-wrap justify-center reveal reveal-up reveal-delay-1">
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Flutter</span>
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i
+              class="devicon-flutter-plain text-[1.1em]"></i> Flutter</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Dart</span>
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i
+              class="devicon-dart-plain text-[1.1em]"></i> Dart</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Firebase</span>
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i
+              class="devicon-firebase-plain text-[1.1em]"></i> Firebase</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Google
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5">Google
             APIs</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">WebSockets</span>
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5">WebSockets</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">Clean
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5">Clean
             Architecture</span>
           <span
-            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] text-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06]">UI
+            class="skill-pill px-4 py-3 rounded-full border border-white/10 bg-white/[0.035] text-muted min-w-[8.5rem] justify-center transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5">UI
             Craft</span>
         </div>
       </div>
@@ -166,7 +181,9 @@
               Un desarrollador que se preocupa por el producto, no solo por el código.</h2>
             <p
               class="section-copy text-muted text-[1rem] md:text-[1.05rem] lg:text-[1.1rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2">
-              Soy un desarrollador de software con experiencia en desarrollo frontend y móvil, especializándome en Flutter. He publicado aplicaciones multiplataforma, integrado Firebase, APIs de Google, WebSockets y servicios de IA, y trabajado con patrones modernos como Clean Architecture, MVVM, MVP y MVC.
+              Soy un desarrollador de software con experiencia en desarrollo frontend y móvil, especializándome en
+              Flutter. He publicado aplicaciones multiplataforma, integrado Firebase, APIs de Google, WebSockets y
+              servicios de IA, y trabajado con patrones modernos como Clean Architecture, MVVM, MVP y MVC.
             </p>
           </div>
 
@@ -176,17 +193,20 @@
               <div class="story-item flex items-start gap-4">
                 <span
                   class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
-                <p class="m-0 text-muted leading-[1.75]">Una sólida comprensión del backend me permite moverme cómodamente en todo el stack y adaptarme a diferentes requerimientos de producto.</p>
+                <p class="m-0 text-muted leading-[1.75]">Una sólida comprensión del backend me permite moverme
+                  cómodamente en todo el stack y adaptarme a diferentes requerimientos de producto.</p>
               </div>
               <div class="story-item flex items-start gap-4">
                 <span
                   class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
-                <p class="m-0 text-muted leading-[1.75]">Me enfoco en una estructura elegante, UX fluida y entregas mantenibles para que el producto final se sienta intencional y escalable.</p>
+                <p class="m-0 text-muted leading-[1.75]">Me enfoco en una estructura elegante, UX fluida y entregas
+                  mantenibles para que el producto final se sienta intencional y escalable.</p>
               </div>
               <div class="story-item flex items-start gap-4">
                 <span
                   class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
-                <p class="m-0 text-muted leading-[1.75]">Mi estilo de trabajo valora el trabajo en equipo, la claridad y una ejecución de alta calidad con un acabado premium centrado en el usuario.</p>
+                <p class="m-0 text-muted leading-[1.75]">Mi estilo de trabajo valora el trabajo en equipo, la claridad y
+                  una ejecución de alta calidad con un acabado premium centrado en el usuario.</p>
               </div>
             </div>
           </div>
@@ -226,11 +246,48 @@
             Proyectos con profundidad práctica y un acabado premium.</h2>
           <p class="section-copy text-muted text-[1rem] md:text-[1.05rem] lg:text-[1.1rem] leading-[1.8] m-0 reveal reveal-up reveal-delay-2"
             style="max-width: 66ch;">
-            Cada tarjeta está diseñada para sentirse más como un caso de estudio de producto que como un simple elemento de galería, con mayor jerarquía, mejor movimiento y llamadas a la acción claras.
+            Cada tarjeta está diseñada para sentirse más como un caso de estudio de producto que como un simple elemento
+            de galería, con mayor jerarquía, mejor movimiento y llamadas a la acción claras.
           </p>
         </div>
 
         <div class="projects-grid grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <!-- Dumpo -->
+          <article
+            class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up">
+            <div
+              class="project-media relative overflow-hidden aspect-[16/11] bg-white/[0.03] flex justify-center items-center p-6">
+              <img
+                class="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-420 hover:scale-104 hover:saturate-108 hover:contrast-102"
+                src="assets/dumpo/UI_1.jpeg" alt="Vista previa de Dumpo" />
+            </div>
+            <div class="project-body relative z-10 grid gap-3.5 p-6">
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Diccionario
+                Inteligente</div>
+              <h3
+                class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
+                Dumpo</h3>
+              <p class="project-desc text-muted leading-[1.8] m-0">Diccionario inteligente de inglés offline-first y
+                tarjetas de estudio con programador de repetición espaciada basado en el algoritmo SuperMemo-2.</p>
+              <div class="project-tags flex flex-wrap gap-2.5">
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-flutter-plain text-[1.1em]"></i> Flutter</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Clean
+                  Architecture</span>
+                <span
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Algoritmo
+                  SM-2</span>
+              </div>
+              <div class="project-actions flex flex-wrap gap-3 mt-1.5">
+                <a class="button btn-slide" href="project-dumpo.html">
+                  <span>Ver detalles</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
           <!-- App Pasa -->
           <article
             class="project-card project-hover-gradient relative grid grid-rows-[auto_1fr] min-h-full border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[28px] overflow-hidden transition-all duration-240 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(0,0,0,0.48)] hover:border-white/20 reveal reveal-up">
@@ -241,18 +298,23 @@
                 src="assets/Pasa/UI_1.jpeg" alt="Vista previa de App Pasa" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Billetera Blockchain</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Billetera
+                Blockchain</div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 App Pasa</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Billetera digital multiplataforma para depósitos, retiros, envíos y conversión de criptomonedas en el ecosistema Stellar Blockchain.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Billetera digital multiplataforma para depósitos,
+                retiros, envíos y conversión de criptomonedas en el ecosistema Stellar Blockchain.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-flutter-plain text-[1.1em]"></i> Flutter</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Clean Architecture</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Clean
+                  Architecture</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Stellar SDK</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Stellar
+                  SDK</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-app-pasa.html">
@@ -272,18 +334,23 @@
                 src="assets/xambio/UI_1.png" alt="Vista previa de Xambio App" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">React / Web de Intercambio</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">React / Web de
+                Intercambio</div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 Xambio App</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Interfaz web completa en React con Redux para gestión de estado de un sistema de cambio de divisas, respaldada por una API REST segura en NestJS.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Interfaz web completa en React con Redux para gestión
+                de estado de un sistema de cambio de divisas, respaldada por una API REST segura en NestJS.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">React</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-react-original text-[1.1em]"></i> React</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">NestJS</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-nestjs-plain text-[1.1em]"></i> NestJS</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Docker</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-docker-plain text-[1.1em]"></i> Docker</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-xambio.html">
@@ -303,18 +370,24 @@
                 src="assets/luchito/luchito-app.png" alt="Vista previa de Luchito App" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Operaciones de Restaurante</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Operaciones
+                de Restaurante</div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 Luchito App</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Sistema de gestión de pedidos para restaurantes construido en Flutter con un enfoque de Arquitectura Limpia, centrado en una experiencia móvil rápida y confiable.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Sistema de gestión de pedidos para restaurantes
+                construido en Flutter con un enfoque de Arquitectura Limpia, centrado en una experiencia móvil rápida y
+                confiable.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-flutter-plain text-[1.1em]"></i> Flutter</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Clean Architecture</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Clean
+                  Architecture</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Aplicación Móvil</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Aplicación
+                  Móvil</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-luchito.html">
@@ -339,18 +412,23 @@
                 src="assets/erp-rapifac/UI_1.png" alt="Vista previa de ERP Payments" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">.NET / Software Empresarial</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">.NET / Software
+                Empresarial</div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 ERP — Módulo de Pagos</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Módulos críticos para un sistema ERP existente que incluye las áreas de Restaurante, Contabilidad y Facturación Electrónica.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Módulos críticos para un sistema ERP existente que
+                incluye las áreas de Restaurante, Contabilidad y Facturación Electrónica.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">C#</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-csharp-plain text-[1.1em]"></i> C#</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">.NET</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-dotnetcore-plain text-[1.1em]"></i> .NET</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">JavaScript</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-javascript-plain text-[1.1em]"></i> JavaScript</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-erp.html">
@@ -370,18 +448,23 @@
                 src="assets/Green Map/UI_1.png" alt="Vista previa de Green Map" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter / Geolocalización</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Flutter /
+                Geolocalización</div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 Green Map</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Una aplicación interactiva en Flutter para visualizar lugares ecológicos con integración de la API de Google Maps y una experiencia de navegación limpia.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Una aplicación interactiva en Flutter para visualizar
+                lugares ecológicos con integración de la API de Google Maps y una experiencia de navegación limpia.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Flutter</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-flutter-plain text-[1.1em]"></i> Flutter</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Google Maps API</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Google
+                  Maps API</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Diseño de interacción</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">Diseño
+                  de interacción</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-green-map.html">
@@ -405,18 +488,23 @@
                 src="assets/ugel/UI_1.png" alt="Vista previa de UGEL Urubamba" />
             </div>
             <div class="project-body relative z-10 grid gap-3.5 p-6">
-              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Angular / Interfaz Web</div>
+              <div class="project-kicker text-accent-3 text-[0.82rem] tracking-[0.2em] uppercase">Angular / Interfaz Web
+              </div>
               <h3
                 class="project-title font-space text-[1.45rem] md:text-[1.7rem] lg:text-[2rem] tracking-[-0.04em] m-0 font-bold">
                 Interfaz de Gestión de Resoluciones</h3>
-              <p class="project-desc text-muted leading-[1.8] m-0">Interfaz para el sistema de gestión de resoluciones directorales en Angular con integración de API REST.</p>
+              <p class="project-desc text-muted leading-[1.8] m-0">Interfaz para el sistema de gestión de resoluciones
+                directorales en Angular con integración de API REST.</p>
               <div class="project-tags flex flex-wrap gap-2.5">
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">Angular</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-angularjs-plain text-[1.1em]"></i> Angular</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">TypeScript</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5"><i
+                    class="devicon-typescript-plain text-[1.1em]"></i> TypeScript</span>
                 <span
-                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035]">REST APIs</span>
+                  class="tag px-3 py-1.5 rounded-full border border-white/10 text-muted text-[0.82rem] bg-white/[0.035] inline-flex items-center gap-1.5">REST
+                  APIs</span>
               </div>
               <div class="project-actions flex flex-wrap gap-3 mt-1.5">
                 <a class="button btn-slide" href="project-ugel.html">
