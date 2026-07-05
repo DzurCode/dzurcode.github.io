@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+    <title>Daniel | Expellio</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/output.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  </head>
+  <body class="m-0 text-text bg-bg overflow-x-hidden font-sans">
+    <header class="site-header sticky top-0 z-50 backdrop-blur-[18px] bg-gradient-to-b from-bg/90 to-bg/60 border-b border-white/5">
+      <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between gap-4 min-h-[76px] md:min-h-[84px]">
+          <a class="brand inline-flex items-center gap-3.5 min-w-0" href="index.html" aria-label="Inicio de portafolio de Daniel">
+            <span class="brand-copy grid gap-[1px]">
+              <strong class="font-space text-base tracking-[-0.03em] font-bold">Daniel Antony</strong>
+              <span class="text-muted text-[0.88rem]">Desarrollador FullStack Flutter</span>
+            </span>
+          </a>
+
+          <nav class="nav flex items-center gap-3.5" aria-label="Principal">
+            <div class="nav-links hidden md:flex items-center gap-1.5 p-1.5 border border-border rounded-full bg-white/5">
+              <a href="index.html#about" class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Sobre mí</a>
+              <a href="index.html#projects" class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Proyectos</a>
+              <a href="index.html#contact" class="relative px-4 py-3 rounded-full text-muted text-[0.95rem] transition-all duration-180 ease-in-out hover:text-text hover:-translate-y-[1px] hover:scale-[1.01]">Contacto</a>
+            </div>
+            <a class="button btn-slide" href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer">
+              <span>Contrátame</span>
+            </a>
+            <button class="menu-button flex md:hidden items-center justify-center w-12 h-12 rounded-full border border-border bg-white/5 text-text" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+
+        <div class="mobile-nav hidden p-0 pb-4" id="mobile-menu">
+          <div class="mobile-nav-panel grid gap-1.5 p-3.5 border border-border rounded-3xl bg-bg/95 shadow-2xl">
+            <a href="index.html#about" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Sobre mí</a>
+            <a href="index.html#projects" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Proyectos</a>
+            <a href="index.html#contact" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Contacto</a>
+            <a href="https://www.linkedin.com/in/dzurn" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-2xl text-muted hover:bg-white/5 hover:text-text">Contrátame</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="w-full max-w-[800px] mx-auto px-4 md:px-6 py-12 md:py-16 grid gap-12">
+        <!-- Fila 1: Title -->
+        <div class="reveal reveal-up">
+          <a href="index.html#projects" class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase mb-6 no-underline">&larr; Volver a Proyectos</a>
+          <h1 class="font-space text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] tracking-[-0.05em] m-0 font-bold">
+            Expellio (Gestión de Finanzas Inteligente)
+          </h1>
+        </div>
+
+        <!-- Fila 2: Description -->
+        <div class="reveal reveal-up reveal-delay-1">
+          <p class="text-muted text-[1.1rem] md:text-[1.2rem] leading-[1.7] m-0">
+            Expellio es una aplicación web y móvil para la gestión financiera personal y de parejas. Permite a los usuarios registrar y categorizar ingresos y gastos, configurar presupuestos mensuales con alertas de consumo, establecer metas de ahorro conjuntas (como fondos de emergencia) y dividir deudas equitativamente. Además, integra procesamiento por IA que automatiza la carga de transacciones mediante la transcripción de notas de voz y el escaneo fotográfico de recibos físicos.
+          </p>
+        </div>
+
+        <!-- Fila 3: Employer & Duration -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal reveal-up reveal-delay-2">
+          <div class="p-4 md:p-[1rem_1.15rem] border border-border rounded-[18px] bg-white/[0.04] backdrop-blur-[14px]">
+            <strong class="block text-xs uppercase tracking-wider text-muted mb-1">Empresa / Empleador</strong>
+            <span class="font-space text-[1.2rem] md:text-[1.3rem] font-bold text-text">Proyecto Personal</span>
+          </div>
+          <div class="p-4 md:p-[1rem_1.15rem] border border-border rounded-[18px] bg-white/[0.04] backdrop-blur-[14px]">
+            <strong class="block text-xs uppercase tracking-wider text-muted mb-1">Duración</strong>
+            <span class="font-space text-[1.2rem] md:text-[1.3rem] font-bold text-text">Jul 2026 – Presente</span>
+          </div>
+        </div>
+
+        <!-- Fila 4: Stack -->
+        <div class="reveal reveal-up reveal-delay-3">
+          <h3 class="text-xs uppercase tracking-widest text-muted mb-3 font-semibold font-space">Tecnologías / Stack</h3>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-react-original text-[1.1em]"></i> React</span>
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-nestjs-plain text-[1.1em]"></i> NestJS</span>
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-typescript-plain text-[1.1em]"></i> TypeScript</span>
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-vite-plain text-[1.1em]"></i> Vite</span>
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-postgresql-plain text-[1.1em]"></i> PostgreSQL</span>
+            <span class="skill-pill px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.035] text-muted text-sm transition-all duration-180 hover:-translate-y-0.5 hover:text-text hover:bg-white/[0.06] inline-flex items-center gap-1.5"><i class="devicon-docker-plain text-[1.1em]"></i> Docker</span>
+          </div>
+        </div>
+
+        <!-- Fila 5: Achievements Title -->
+        <div class="reveal reveal-up">
+          <div class="section-head grid gap-2">
+            <span class="eyebrow inline-flex items-center gap-2.5 px-3.5 py-2 border border-border rounded-full bg-white/5 text-muted text-[0.86rem] tracking-[0.18em] uppercase w-fit">Logros</span>
+            <h2 class="font-space text-[1.8rem] md:text-[2.2rem] leading-[1.1] tracking-[-0.04em] m-0 font-bold text-text">Contribuciones técnicas clave</h2>
+          </div>
+        </div>
+
+        <!-- Fila 6: Achievements list -->
+        <div class="reveal reveal-up">
+          <div class="p-6 md:p-8 border border-border bg-gradient-to-b from-white/[0.055] to-white/[0.03] backdrop-blur-[18px] shadow-2xl rounded-[26px]">
+            <div class="grid gap-5 m-0">
+              
+              <div class="flex items-start gap-4">
+                <span class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.7] text-sm md:text-base"><strong>Aislamiento de Multi-Inquilino (Multi-Tenancy):</strong> Implementé un diseño estricto de base de datos donde toda la información financiera está aislada de forma lógica a nivel de consulta mediante un identificador de hogar (`householdId`), asegurando privacidad y seguridad de los datos.</p>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <span class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.7] text-sm md:text-base"><strong>Seguridad contra Ataques de Temporización (Timing Attacks):</strong> Previne la enumeración de usuarios implementando una simulación de retardo computacional con `bcrypt.compare` contra hashes ficticios cuando un correo electrónico consultado no existe en el sistema.</p>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <span class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.7] text-sm md:text-base"><strong>Rotación de Token de Refresco (RTR) con Estado:</strong> Programé un flujo de autenticación con doble JWT que audita los tokens en una base de datos PostgreSQL, previniendo ataques de replay mediante la invalidación automática de reintentos con identificadores de token (`jti`) usados.</p>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <span class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.7] text-sm md:text-base"><strong>Registro de Auditoría Append-Only:</strong> Diseñé un motor de log de auditoría inmutable a nivel de base de datos a través de PostgreSQL, garantizando trazabilidad total de operaciones críticas y bloqueando actualizaciones o eliminaciones de auditoría.</p>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <span class="bullet mt-[0.35rem] w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_5px_rgba(255,122,89,0.12)] flex-none"></span>
+                <p class="m-0 text-muted leading-[1.7] text-sm md:text-base"><strong>Procesamiento en Segundo Plano de IA:</strong> Modelé registros de auditoría y colas de tareas asíncronas para el procesamiento de IA (`AiJob`) de notas de voz, imágenes de tickets e informes mensuales dinámicos.</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 7: Images -->
+        <div class="reveal reveal-up grid gap-6">
+          <h3 class="text-xs uppercase tracking-widest text-muted font-semibold m-0">Capturas de pantalla / Galería</h3>
+          
+          <div class="browser-gallery grid grid-cols-1 gap-6 w-full">
+            <div class="browser-mockup relative bg-[#091220] rounded-[14px] border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.45)] overflow-hidden cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:scale-[1.01] hover:shadow-[0_30px_60px_rgba(0,0,0,0.65)] hover:border-white/25" data-caption="Expellio - Panel de Control Financiero">
+              <div class="browser-header h-[34px] bg-white/[0.04] border-b border-white/[0.08] flex items-center px-3 gap-2">
+                <div class="browser-dots flex gap-[5px]">
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                </div>
+                <div class="browser-address flex-1 h-5 bg-black/25 rounded-[4px] border border-white/5 mx-4 max-w-[320px] flex items-center px-2 text-muted text-[0.7rem] font-mono overflow-hidden text-ellipsis whitespace-nowrap">https://expellio.com/dashboard</div>
+              </div>
+              <div class="browser-content relative w-full aspect-[16/10] bg-black overflow-hidden">
+                <img class="w-full h-full object-cover block" src="assets/expellio/UI_1.png" alt="Expellio Dashboard"/>
+              </div>
+            </div>
+            <div class="browser-mockup relative bg-[#091220] rounded-[14px] border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.45)] overflow-hidden cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:scale-[1.01] hover:shadow-[0_30px_60px_rgba(0,0,0,0.65)] hover:border-white/25" data-caption="Expellio - Listado e Historial de Transacciones">
+              <div class="browser-header h-[34px] bg-white/[0.04] border-b border-white/[0.08] flex items-center px-3 gap-2">
+                <div class="browser-dots flex gap-[5px]">
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                  <span class="browser-dot w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                </div>
+                <div class="browser-address flex-1 h-5 bg-black/25 rounded-[4px] border border-white/5 mx-4 max-w-[320px] flex items-center px-2 text-muted text-[0.7rem] font-mono overflow-hidden text-ellipsis whitespace-nowrap">https://expellio.com/transactions</div>
+              </div>
+              <div class="browser-content relative w-full aspect-[16/10] bg-black overflow-hidden">
+                <img class="w-full h-full object-cover block" src="assets/expellio/UI_2.png" alt="Expellio Transactions"/>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer py-[1.35rem] pb-10 border-t border-white/[0.08] text-muted text-center text-[0.95rem]">
+      <div class="w-full max-w-[1180px] mx-auto px-4 md:px-6">
+        <p>&copy; 2026 Daniel Antony Zuñiga Ramos. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuButton = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const revealItems = document.querySelectorAll('.reveal');
+
+      requestAnimationFrame(() => {
+        document.body.classList.add('page-ready');
+      });
+
+      menuButton.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('is-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('block');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          menuButton.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -6% 0px',
+        }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+
+      // ==========================================
+      // LIGHTBOX ENGINE
+      // ==========================================
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox-modal';
+        lightbox.innerHTML = `
+          <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Cerrar lightbox">&times;</button>
+            <img class="lightbox-image" src="" alt="" />
+            <div class="lightbox-caption"></div>
+          </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const imgElement = lightbox.querySelector('.lightbox-image');
+        const captionElement = lightbox.querySelector('.lightbox-caption');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+
+        const openLightbox = (src, captionText) => {
+          imgElement.src = src;
+          imgElement.alt = captionText || 'Vista ampliada';
+          captionElement.textContent = captionText || '';
+          lightbox.classList.add('is-active');
+        };
+
+        const closeLightbox = () => {
+          lightbox.classList.remove('is-active');
+        };
+
+        document.querySelectorAll('.phone-mockup, .browser-mockup, .document-frame').forEach(container => {
+          container.addEventListener('click', (e) => {
+            const img = container.querySelector('img');
+            if (img) {
+              const caption = container.getAttribute('data-caption') || img.alt || '';
+              openLightbox(img.src, caption);
+            }
+          });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && lightbox.classList.contains('is-active')) {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
