@@ -52,6 +52,7 @@
     will-change: transform, opacity;
     overflow: hidden;
     isolation: isolate;
+    white-space: nowrap;
   }
 
   .button > *,
