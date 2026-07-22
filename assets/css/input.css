@@ -12,11 +12,9 @@
 @layer base {
   body {
     @apply m-0 text-text bg-bg overflow-x-hidden font-sans;
-    background:
-      radial-gradient(circle at top left, rgba(255, 122, 89, 0.16), transparent 28%),
-      radial-gradient(circle at 80% 10%, rgba(124, 231, 213, 0.12), transparent 20%),
-      radial-gradient(circle at 50% 0%, rgba(255, 179, 107, 0.1), transparent 18%),
-      linear-gradient(180deg, #07111f 0%, #091421 48%, #050b14 100%);
+    /* Static background removed — replaced by animated aurora canvas (#aurora-bg).
+       This background-color acts as a paint-before fallback before JS loads. */
+    background-color: #07111f;
   }
 
   body::before {
