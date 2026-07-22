@@ -37,8 +37,7 @@
   /* Button component base styles */
   .button,
   .button-secondary,
-  .project-link,
-  .contact-link {
+  .project-link {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -50,6 +49,25 @@
     will-change: transform, opacity;
     overflow: hidden;
     isolation: isolate;
+  }
+
+  .contact-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.55rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    will-change: transform, opacity;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .button,
+  .button-secondary,
+  .project-link {
     white-space: nowrap;
   }
 
